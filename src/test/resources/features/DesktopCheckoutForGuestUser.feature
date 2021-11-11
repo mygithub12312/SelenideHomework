@@ -8,28 +8,27 @@ Feature: Desktop Checkout for Guest User
     Given I am an anonymous customer with clear cookies
     When I open the "Initial home page"
     And I search for "Thinking in Java"
-    And I am redirected to a "Search page"
+    And I am redirected to a "search" page
     And Search results contain the following products
       | Thinking in Java       |
       | Thinking Java Part I   |
       | Core Java Professional |
     And I apply the following search filters
       | Price range  | 30 € +        |
-      | Availability | In Stock (5)  |
-      | Language     | English (5)   |
-      | Format       | Paperback (5) |
+      | Availability | In Stock (6)  |
+      | Language     | English (16)   |
+      | Format       | Paperback (21) |
     Then Search results contain only the following products
       | Thinking in Java                                                      |
       | Think Java                                                            |
       | Thinking Recursively with Java                                        |
       | Java and Algorithmic Thinking for the Complete Beginner (2nd Edition) |
-      | Core Java Professional                                                |
-    When I click 'Add to basket' button for product with name "Thinking in Java"
+    When I click Add to Basket button for product with name Thinking in Java
     And I select 'Basket/Checkout' in basket pop-up
-    Then I am redirected to the "Basket page"
+    Then I am redirected to the "Basket" page
     And Basket order summary is as following:
       | Delivery cost | Total   |
-      | FREE          | 64,61 € |
+      | FREE          | 99,86 € |
     When I click 'Checkout' button on 'Basket' page
     Then I am redirected to the "Checkout" page
     When I click 'Buy now' button
