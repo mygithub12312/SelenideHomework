@@ -6,9 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.assertj.core.api.SoftAssertions;
+import org.junit.Rule;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.RegisterExtension;
 
+import com.codeborne.selenide.junit.ScreenShooter;
 import com.codeborne.selenide.junit5.ScreenShooterExtension;
 
 import desktop.pages.*;
@@ -17,6 +19,9 @@ import io.cucumber.java.en.*;
 
 @ExtendWith({ ScreenShooterExtension.class})
 public class DesktopCheckoutForGuestUser {
+
+    @Rule
+    public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests().succeededTests();
 
     @RegisterExtension
     static ScreenShooterExtension screenshotEmAll = new ScreenShooterExtension(true).to("selenide/screenshots");
@@ -31,8 +36,8 @@ public class DesktopCheckoutForGuestUser {
     }
 
     @When("I open the {string}")
-    public void iOpenThe(String arg0) {
-        homePage.openHomePage();
+    public void iOpenThe(String page) {
+        homePage.openHomePage(page);
     }
 
     @And("I search for {string}")

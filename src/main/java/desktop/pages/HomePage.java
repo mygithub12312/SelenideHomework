@@ -9,7 +9,7 @@ public class HomePage extends AbstractPage {
 	private static final String homePageUrl = "https://www.bookdepository.com/";
 	private static final By searchField = By.xpath("//*[@class='text-input']");
 
-	public void openHomePage() {
+	public void openHomePage(String page) {
 		openWebsite(homePageUrl);
 	}
 
